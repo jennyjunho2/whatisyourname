@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useState } from "react";
 import { Container } from "../components/index/styles";
 
 function Home() {
