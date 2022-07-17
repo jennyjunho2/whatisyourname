@@ -7,6 +7,11 @@ function Header() {
       <Col>
         <Icon alt="Logo" src="/images/logo512.png"></Icon>
         <TitleSpan>What Is Your Name?</TitleSpan>
+        <span>About</span>
+        <span>Skills</span>
+        <span>Projects</span>
+        <Github />
+        <Contact />
         <DarkModeToggle />
       </Col>
     </Nav>
