@@ -1,8 +1,10 @@
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { darkModeAtom } from "../../../atoms";
 
 export const DarkModeDiv = styled.div`
   display: flex;
-  margin: 0 auto;
+  margin-right: 20px;
   & > button {
     font-size: 1.2em;
     background: none;
@@ -24,6 +26,10 @@ export const ToggleControl = styled.span`
   padding: 0 4px;
   display: flex;
   align-items: center;
+`
+
+export const ExtLink = styled.a`
+  margin-right: 30px;
 `
 
 export const DarkModeCheckBox = styled.input`

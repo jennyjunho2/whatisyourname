@@ -2,9 +2,9 @@ import { Variants } from "framer-motion";
 
 export const navVariants: Variants = {
   top: {
-    backgroundColor: "rgba(0, 0, 0, 0)",
+    backgroundColor: "#000000",
   },
   scroll: {
-    backgroundColor: "rgba(0, 0, 0, 1)",
+    backgroundColor: "#ffffff",
   },
 };

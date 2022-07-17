@@ -37,6 +37,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta charSet="utf-8"></meta>
         </Head>
         <body>
           <Main />
