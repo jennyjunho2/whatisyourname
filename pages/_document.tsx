@@ -5,6 +5,8 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
+import { useRecoilValue } from "recoil";
+import { ThemeProvider } from "styled-components";
 import { ServerStyleSheet } from "styled-components";
 
 class MyDocument extends Document {

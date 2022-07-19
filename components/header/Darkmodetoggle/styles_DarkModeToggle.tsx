@@ -1,8 +1,7 @@
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { darkModeAtom } from "../../../atoms";
 
-export const DarkModeDiv = styled.div`
+export const DarkModeDiv = styled.div<{ isDarkMode: boolean }>`
   display: flex;
   margin-right: 20px;
   & > button {
@@ -11,9 +10,7 @@ export const DarkModeDiv = styled.div`
     border: none;
     cursor: pointer;
     transition: color 0.3s ease;
-    &:last-child {
-      color: #666;
-    }
+    color: ${props => props.isDarkMode ? "white" : "dark"};
 
     &:focus {
       outline: none;
