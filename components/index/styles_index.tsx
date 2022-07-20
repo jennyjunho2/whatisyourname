@@ -1,9 +1,15 @@
+import Image from "next/image";
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface isDark {
+  isDarkMode: boolean;
+}
+
+export const Container = styled.div<isDark>`
   width: 100vw;
   height: 300vh;
-  background: linear-gradient(to right, black, rgba(0, 0, 0, 0.7));
+  background: ${props => props.isDarkMode ? "black" : "white"};
+  /* background: linear-gradient(to right, black, rgba(0, 0, 0, 0.7)); */
 `;
 
 export const HomeContainer = styled.div`
@@ -17,14 +23,19 @@ export const HomeContainer = styled.div`
 
 export const ProfileContainter = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
-  height: 10%;
   margin-top: 30vh;
   min-height: fit-content;
+`
 
+export const DescriptionContainer = styled.div`
+  width: 50%;
+`
+
+export const ImageContainer = styled.div`
+  width: 50%;
 `
 
 export const Title = styled.span`
