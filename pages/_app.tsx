@@ -3,6 +3,8 @@ import { AppProps } from "next/app";
 import Header from "../components/header/Header";
 import { RecoilRoot } from "recoil";
 import GlobalStyle from "../styles/reset";
+import { ThemeProvider } from "styled-components";
+import theme from "../styles/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -13,8 +15,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>WhatIsYourName?</title>
       </Head>
       <GlobalStyle />
-      <Header />
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <Header />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </RecoilRoot>
   );
 }

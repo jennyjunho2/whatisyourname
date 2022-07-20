@@ -1,13 +1,17 @@
 import Head from "next/head";
-import { useState } from "react";
-import { Container, FirstSection } from "../components/index/styles";
+import { Container, HomeContainer, Title, Desc, ProfileContainter } from "../components/index/styles_index";
+import { useDarkMode } from "../hooks/useDarkMode";
 
 function Home() {
+  const [darkMode, setDarkMode] = useDarkMode();
   return (
     <Container>
-      <FirstSection>
-        <h1>home</h1>
-      </FirstSection>
+      <HomeContainer>
+        <ProfileContainter>
+          <Title>Hi! I&apos;m June😎</Title>
+          <Desc>&lt;WhatIsYourName? /&gt;</Desc>
+        </ProfileContainter>
+      </HomeContainer>
     </Container>
   );
 }
