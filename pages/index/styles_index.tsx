@@ -1,11 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
+import { isDark } from "../../utils/interfaces";
 
-interface isDark {
-  isDarkMode: boolean;
-}
-
-export const IndexContainer = styled.div`
+export const IndexContainer = styled.div<isDark>`
   width: 100%;
   height: 300vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

@@ -1,12 +1,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import styled from "styled-components";
+import { isDark } from "../../utils/interfaces";
 
-interface isDark {
-  isDarkMode: boolean;
-}
-
-export const Nav = styled(motion.nav)<isDark>`
+export const Nav = styled(motion.nav)`
   display: flex;
   justify-content: space-between;
   align-items: center;
