@@ -1,10 +1,6 @@
-import { Nav, Col, Icon, Item, Items, ExtLinkImage } from "./styles_Header";
-import DarkModeToggle from "./Darkmodetoggle/DarkModeToggle";
-import { useAnimation, useScroll } from "framer-motion";
-import { useEffect } from "react";
+import { Nav, Col, Item, Items, ExtLinkImage, Title } from "./styles_Header";
+import DarkModeToggle from "../Darkmodetoggle/DarkModeToggle";
 import { useDarkMode } from "../../hooks/useDarkMode";
-import Image from "next/image";
-import { ExtLink } from "./Darkmodetoggle/styles_DarkModeToggle";
 
 function Header() {
   // header scroll animation
@@ -18,19 +14,16 @@ function Header() {
       isDarkMode={darkMode}
     >
       <Col>
-        <Icon
-          alt="Logo"
-          src={`/images/logo512-Light.png`}
-          isDarkMode={darkMode}
-        />
+        <Title isDarkMode={darkMode}>&lt; WIYN /&gt;</Title>
+      </Col>
+      <Col>
         <Items>
           <Item isDarkMode={darkMode}>About</Item>
           <Item isDarkMode={darkMode}>Skills</Item>
           <Item isDarkMode={darkMode}>Projects</Item>
+          <Item isDarkMode={darkMode}>Contact</Item>
         </Items>
-      </Col>
-      <Col>
-        <ExtLink
+        {/* <ExtLink
           href="https://github.com/jennyjunho2"
           target="_blank"
           rel="noopener noreferrer"
@@ -55,7 +48,7 @@ function Header() {
             alt="Go to LinkedIn Profile"
             isDarkMode={darkMode}
           />
-        </ExtLink>
+        </ExtLink> */}
         <DarkModeToggle />
       </Col>
     </Nav >

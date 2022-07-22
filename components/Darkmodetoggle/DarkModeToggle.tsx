@@ -1,5 +1,4 @@
-import { useRecoilState } from "recoil";
-import { useDarkMode } from "../../../hooks/useDarkMode";
+import { useDarkMode } from "../../hooks/useDarkMode";
 import { DarkModeCheckBox, DarkModeDiv, ToggleControl } from "./styles_DarkModeToggle";
 
 function DarkModeToggle() {
@@ -17,6 +16,7 @@ function DarkModeToggle() {
           type="checkbox"
           checked={darkMode ? true : false}
           onChange={() => setDarkMode((prev) => !prev)}
+          darkMode={darkMode}
         />
         <label htmlFor="dmcheck" />
       </ToggleControl>
