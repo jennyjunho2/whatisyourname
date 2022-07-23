@@ -1,26 +1,31 @@
-import { useState } from "react";
+import { useRecoilState } from "recoil";
 import { useDarkMode } from "../../hooks/useDarkMode";
 import DarkModeToggle from "../Darkmodetoggle/DarkModeToggle";
-import { DarkModeWrapper, Menu, MenuToggle, MenuToggleWrapper, MobileCol, MobileNav, MobileTitle, MobileTitleWrapper } from "./styles_MobileHeader";
+import { DarkModeWrapper, MenuToggle, MenuToggleWrapper, MobileNav, MobileTitle, MobileTitleWrapper } from "./styles_MobileHeader";
+import { isMobileSideViewOpen } from "../../utils/atoms";
 
 function MobileHeader() {
   const [darkMode] = useDarkMode();
+  const [isOpen, setIsOpen] = useRecoilState(isMobileSideViewOpen);
+
+  const handleClick = () => {
+    setIsOpen((prev) => !prev);
+  }
 
   return (
     <MobileNav>
       <MenuToggleWrapper>
-        <MenuToggle>
-          <input type="checkbox" />
+        <MenuToggle
+          isDarkMode={darkMode}
+          isOpen={isOpen}
+        >
+          <input type="checkbox" onClick={handleClick} />
+
           <span></span>
           <span></span>
           <span></span>
 
-          <Menu>
-            <a href="#"><li>Home</li></a>
-            <a href="#"><li>About</li></a>
-            <a href="#"><li>Info</li></a>
-            <a href="#"><li>Contact</li></a>
-          </Menu>
+          <div></div>
         </MenuToggle>
       </MenuToggleWrapper>
       <MobileTitleWrapper>

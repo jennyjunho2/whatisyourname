@@ -1,5 +1,11 @@
+import { Props } from "next/script";
+import { propTypes } from "react-bootstrap/esm/Image";
 import styled from "styled-components";
 import { isDark } from "../../utils/interfaces";
+
+interface IMenuToggleProps extends isDark {
+  isOpen: boolean;
+}
 
 export const MobileNav = styled.div<isDark>`
   display: flex;
@@ -48,19 +54,10 @@ export const MenuToggleWrapper = styled.div`
   align-items: center;
 `;
 
-export const MenuToggle = styled.div`
+export const MenuToggle = styled.div<IMenuToggleProps>`
   display: block;
+  position: relative;
   z-index: 1;
-
-  & > a {
-    text-decoration: none;
-    color: #232323;
-    transition: color 0.3s ease;
-  }
-
-  & > a:hover {
-    color: ${(props) => props.theme.color.orange};
-  }
 
   & > input {
     display: block;
@@ -72,7 +69,7 @@ export const MenuToggle = styled.div`
     cursor: pointer;
 
     opacity: 0;
-    z-index: 2;
+    z-index: 3;
 
     -webkit-touch-callout: none;
   }
@@ -84,56 +81,41 @@ export const MenuToggle = styled.div`
     margin-bottom: 0.5rem;
     position: relative;
 
-    background: rgba(0, 0, 0, 1);
+    background: ${(props) =>
+      props.isDarkMode
+        ? props.theme.background.light
+        : props.theme.background.dark};
     border-radius: 0.3rem;
-
-    z-index: 1;
-
+    z-index: 2;
     transform-origin: 0.4rem 0;
 
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.3s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.3s ease;
   }
 
   & > span:first-child {
     transform-origin: 0% 0%;
   }
 
-  & > span:nth-child(2) {
+  & > span:nth-last-child(2) {
     transform-origin: 0% 100%;
   }
 
   & > input:checked ~ span {
     opacity: 1;
-    transform: rotate(45deg) translate(-0.2rem, -0.1rem);
-    background: rgba(0, 0, 0, 1);
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: ${(props) =>
+      props.isDarkMode
+        ? props.theme.background.dark
+        : props.theme.background.light};
   }
 
-  & > input:checked ~ span:nth-child(2) {
-    transform: rotate(-45deg) translate(0, -0.1rem);
+  & > input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
   }
 
-  & > input:checked ~ ul {
-    transform: none;
-  }
-`;
-
-export const Menu = styled.ul`
-  position: absolute;
-  width: 30rem;
-  margin: -10rem 0 0 -5rem;
-  padding: 5rem;
-  padding-top: 12.5rem;
-
-  background: rgba(255, 255, 255, 1);
-  list-style-type: none;
-
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-
-  & > li {
-    padding: 1rem 0;
-    font-size: 2.2rem;
+  & > input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
   }
 `;

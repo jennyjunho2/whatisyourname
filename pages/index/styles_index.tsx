@@ -1,6 +1,18 @@
-import Image from "next/image";
 import styled from "styled-components";
+import SideMenu from "../../components/SideMenu/SideMenu";
 import { isDark } from "../../utils/interfaces";
+
+export const Container = styled.div`
+`
+
+export const Top = styled.div`
+  z-index: 99;
+  top: 0;
+`
+
+export const Bottom = styled.div`
+  z-index: 0;
+`
 
 export const IndexContainer = styled.div<isDark>`
   width: 100%;
@@ -11,6 +23,5 @@ export const IndexContainer = styled.div<isDark>`
 `;
 
 export const BackgroundImage = styled.div`
-  
 `;
 

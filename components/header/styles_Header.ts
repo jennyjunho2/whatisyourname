@@ -3,7 +3,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { isDark } from "../../utils/interfaces";
 
-export const Nav = styled(motion.nav)`
+export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;

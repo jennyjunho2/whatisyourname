@@ -1,10 +1,10 @@
-import Header from "../../../components/header/Header";
 import { useDarkMode } from "../../../hooks/useDarkMode";
 import { ButtonContainer, DescriptionContainer, FooterContainer, HomeContainer, ImageContainer, ProfileContainer, RoundButton, Title, TypingDesc } from "./styles_FirstSection";
 import TypeAnimation from 'react-type-animation';
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import MobileHeader from "../../../components/MobileHeader/MobileHeader";
+import { useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { isMobileSideViewOpen, isMobileView } from "../../../utils/atoms";
 
 const MOBILE_VIEW = 1138;
 
@@ -13,23 +13,24 @@ function FirstSection() {
   const [darkMode] = useDarkMode();
 
   // Header Mobile View
-  const [showMobileNavView, SetShowMobileNavView] = useState<boolean>(false);
-  console.log(showMobileNavView);
+  const [showMobileView, setShowMobileView] = useRecoilState(isMobileView);
+  const isOpen = useRecoilValue(isMobileSideViewOpen);
+
 
   useEffect(() => {
     if (window.innerWidth >= MOBILE_VIEW) {
-      SetShowMobileNavView(false);
+      setShowMobileView(false);
     } else if (window.innerWidth < MOBILE_VIEW) {
-      SetShowMobileNavView(true);
+      setShowMobileView(true);
     }
   }, []);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= MOBILE_VIEW) {
-        SetShowMobileNavView(false);
+        setShowMobileView(false);
       } else if (window.innerWidth < MOBILE_VIEW) {
-        SetShowMobileNavView(true);
+        setShowMobileView(true);
       }
     };
     window.addEventListener('resize', handleResize);
@@ -40,8 +41,7 @@ function FirstSection() {
   }, [])
 
   return (
-    <HomeContainer>
-      {!showMobileNavView ? <Header /> : <MobileHeader />}
+    <HomeContainer isOpen={isOpen}>
       <ProfileContainer>
         <DescriptionContainer>
           <Title isDarkMode={darkMode}>Hi! My name is <span>June 😎</span></Title>

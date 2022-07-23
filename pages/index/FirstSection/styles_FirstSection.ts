@@ -4,12 +4,17 @@ interface isDark {
   isDarkMode: boolean;
 }
 
-export const HomeContainer = styled.div`
+export const HomeContainer = styled.div<{ isOpen: boolean }>`
   height: 75vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: ${(props) => (props.isOpen ? 0.1 : 1)};
+  transition: opacity 0.3s ease;
+  @media screen and (min-width: 1220px) {
+    opacity: 1;
+  }
 `;
 
 export const ProfileContainer = styled.div`
