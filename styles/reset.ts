@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
   * {
     user-select: none;
+    -webkit-user-select: none;
   }
   html {
     font-size: 62.5%;

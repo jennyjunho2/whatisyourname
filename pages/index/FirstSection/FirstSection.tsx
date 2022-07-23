@@ -4,6 +4,7 @@ import { ButtonContainer, DescriptionContainer, FooterContainer, HomeContainer, 
 import TypeAnimation from 'react-type-animation';
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import MobileHeader from "../../../components/MobileHeader/MobileHeader";
 
 const MOBILE_VIEW = 1138;
 
@@ -40,7 +41,7 @@ function FirstSection() {
 
   return (
     <HomeContainer>
-      {!showMobileNavView ? <Header /> : null}
+      {!showMobileNavView ? <Header /> : <MobileHeader />}
       <ProfileContainer>
         <DescriptionContainer>
           <Title isDarkMode={darkMode}>Hi! My name is <span>June 😎</span></Title>
@@ -55,7 +56,7 @@ function FirstSection() {
               repeat={Infinity}
             />
           </TypingDesc>
-          <Title isDarkMode={darkMode}>Front-end Developer</Title>
+          <Title isDarkMode={darkMode}>End-to-End Developer</Title>
           <ButtonContainer>
             <RoundButton isDarkMode={darkMode}>
               Pick me!
