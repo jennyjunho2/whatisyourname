@@ -3,9 +3,11 @@ import SideMenu from "../../components/SideMenu/SideMenu";
 import { isDark } from "../../utils/interfaces";
 
 export const Container = styled.div`
+
 `
 
 export const Top = styled.div`
+// FIXME:
   z-index: 99;
   top: 0;
 `
