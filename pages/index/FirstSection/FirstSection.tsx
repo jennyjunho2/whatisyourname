@@ -6,39 +6,11 @@ import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { isMobileSideViewOpen, isMobileView } from "../../../utils/atoms";
 
-const MOBILE_VIEW = 1138;
-
 function FirstSection() {
   // Dark Mode Hook
   const [darkMode] = useDarkMode();
 
-  // Header Mobile View
-  const [showMobileView, setShowMobileView] = useRecoilState(isMobileView);
   const isOpen = useRecoilValue(isMobileSideViewOpen);
-
-
-  useEffect(() => {
-    if (window.innerWidth >= MOBILE_VIEW) {
-      setShowMobileView(false);
-    } else if (window.innerWidth < MOBILE_VIEW) {
-      setShowMobileView(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= MOBILE_VIEW) {
-        setShowMobileView(false);
-      } else if (window.innerWidth < MOBILE_VIEW) {
-        setShowMobileView(true);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    }
-  }, [])
 
   return (
     <HomeContainer isOpen={isOpen}>

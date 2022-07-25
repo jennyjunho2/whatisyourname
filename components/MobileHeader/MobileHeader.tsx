@@ -1,7 +1,7 @@
 import { useRecoilState } from "recoil";
 import { useDarkMode } from "../../hooks/useDarkMode";
 import DarkModeToggle from "../Darkmodetoggle/DarkModeToggle";
-import { DarkModeWrapper, MenuToggle, MenuToggleWrapper, MobileNav, MobileTitle, MobileTitleWrapper } from "./styles_MobileHeader";
+import { DarkModeWrapper, HamburgerButton, MenuToggle, MenuToggleWrapper, MobileNav, MobileTitle, MobileTitleWrapper } from "./styles_MobileHeader";
 import { isMobileSideViewOpen } from "../../utils/atoms";
 
 function MobileHeader() {
@@ -19,11 +19,14 @@ function MobileHeader() {
           isDarkMode={darkMode}
           isOpen={isOpen}
         >
-          <input type="checkbox" onClick={handleClick} />
-
-          <span></span>
-          <span></span>
-          <span></span>
+          <HamburgerButton
+            onClick={handleClick}
+            isDarkMode={darkMode}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </HamburgerButton>
 
           <div></div>
         </MenuToggle>

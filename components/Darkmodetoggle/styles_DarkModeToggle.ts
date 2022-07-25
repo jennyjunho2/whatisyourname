@@ -1,11 +1,8 @@
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { isDark } from "../../utils/interfaces";
 
-interface isDark {
-  isDarkMode: boolean;
-}
-
-export const DarkModeDiv = styled.div<{ isDarkMode: boolean }>`
+export const DarkModeDiv = styled.div<isDark>`
   display: flex;
   margin-right: 2rem;
   & > button {

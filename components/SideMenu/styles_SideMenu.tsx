@@ -1,27 +1,11 @@
 import styled from "styled-components";
 import { isDark } from "../../utils/interfaces";
 
-interface IMenuProps extends isDark {
-  isOpen: boolean;
-}
-
-export const Menu = styled.ul<IMenuProps>`
-  height: 300vh;
-  position: absolute;
-  width: 20rem;
-  margin: 0;
-  margin-left: ${props => props.isOpen ? 0 : -30}rem;
-  padding: 5rem;
-  padding-top: 12.5rem;
-
-  background: ${(props) =>
-    props.isDarkMode
-      ? props.theme.background.light
-      : props.theme.background.dark};
+export const Menu = styled.ul<isDark>`
+  font-family: "Prompt", "Mulish", sans-serif;
   list-style-type: none;
 
   transform-origin: 0% 0%;
-  transition: margin-left 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
 
   display: flex;
   flex-direction: column;
@@ -36,14 +20,20 @@ export const Menu = styled.ul<IMenuProps>`
   & > a {
     font-size: 3rem;
     text-decoration: none;
-    font-weight: 500;
-    color: ${(props) =>
-    props.isDarkMode
-      ? props.theme.background.dark
-      : props.theme.background.light};
+    font-weight: 400;
+    color: ${(props) => props.theme.background.light};
     transition: color 0.3s ease;
     &:hover {
-      color: ${(props) => props.theme.color.orange};
+      color: ${(props) => props.theme.misc.accent};
     }
   }
 `;
+
+export const CloseMark = styled.div<isDark>`
+  position: absolute;
+  cursor: pointer;
+  top: 1rem;
+  left: 200px;
+  font-size: 64px;
+  color: ${(props) => props.theme.background.light};
+`

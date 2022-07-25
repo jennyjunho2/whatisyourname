@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { AppProps } from "next/app";
-import Header from "../components/header/Header";
+import Header from "../components/Header/Header";
 import { RecoilRoot } from "recoil";
 import GlobalStyle from "../styles/reset";
 import { ThemeProvider } from "styled-components";

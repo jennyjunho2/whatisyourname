@@ -40,6 +40,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8"></meta>
+          <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500&family=Prompt:wght@400;500&display=swap" rel="stylesheet"></link>
         </Head>
         <body>
           <Main />

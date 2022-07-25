@@ -1,11 +1,9 @@
 import { Props } from "next/script";
 import { propTypes } from "react-bootstrap/esm/Image";
 import styled from "styled-components";
-import { isDark } from "../../utils/interfaces";
+import { isDark, isOpen } from "../../utils/interfaces";
 
-interface IMenuToggleProps extends isDark {
-  isOpen: boolean;
-}
+interface IMenuToggleProps extends isDark, isOpen {}
 
 export const MobileNav = styled.div<isDark>`
   display: flex;
@@ -59,40 +57,6 @@ export const MenuToggle = styled.div<IMenuToggleProps>`
   position: relative;
   z-index: 1;
 
-  & > input {
-    display: block;
-    width: 4rem;
-    height: 3.2rem;
-    position: absolute;
-    top: -0.7rem;
-    left: -0.5rem;
-    cursor: pointer;
-
-    opacity: 0;
-    z-index: 3;
-
-    -webkit-touch-callout: none;
-  }
-
-  & > span {
-    display: block;
-    width: 3.3rem;
-    height: 0.4rem;
-    margin-bottom: 0.5rem;
-    position: relative;
-
-    background: ${(props) =>
-      props.isDarkMode
-        ? props.theme.background.light
-        : props.theme.background.dark};
-    border-radius: 0.3rem;
-    z-index: 2;
-    transform-origin: 0.4rem 0;
-
-    transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1),
-      background 0.3s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.3s ease;
-  }
-
   & > span:first-child {
     transform-origin: 0% 0%;
   }
@@ -117,5 +81,27 @@ export const MenuToggle = styled.div<IMenuToggleProps>`
 
   & > input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
+  }
+`;
+
+export const HamburgerButton = styled.div`
+  cursor: pointer;
+
+  & > span {
+    display: block;
+    width: 3.3rem;
+    height: 0.4rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+
+    background: ${(props) =>
+      props.isDarkMode
+        ? props.theme.background.light
+        : props.theme.background.dark};
+    border-radius: 0.3rem;
+    z-index: 2;
+    transform-origin: 0.4rem 0;
+
+    transition: background 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
 `;

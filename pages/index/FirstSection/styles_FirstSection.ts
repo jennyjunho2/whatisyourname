@@ -10,10 +10,13 @@ export const HomeContainer = styled.div<{ isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: ${(props) => (props.isOpen ? 0.1 : 1)};
-  transition: opacity 0.3s ease;
+
+  //TODO: Performance issue!!
+  filter: blur(${(props) => (props.isOpen ? 0.4 : 0)}rem);
+  transition: filter 0.3s ease;
+
   @media screen and (min-width: 1220px) {
-    opacity: 1;
+    filter: none;
   }
 `;
 
